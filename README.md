@@ -1,6 +1,6 @@
 # Tools-e-comandi-Shell
 
-Tutto sulla Shell
+La Shell
 
 -[Tipi di Shell](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Tipi-di-Shell/README.md)
 
