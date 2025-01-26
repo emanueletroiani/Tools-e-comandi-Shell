@@ -1,41 +1,59 @@
-# Tools-e-comandi-Shell
+E’ una **shell** potente che può essere **installata su** diversi sistemi operativi e tecnologie come  **Android, Java, Linux, Windows** e molte altre. 
 
-La Shell
+Per abbassare la percentuale di rilevamento su una macchina target da Antivirus, IPS and IDS viene eseguite nella memoria RAM.
 
--[Tipi di Shell](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Tipi-di-Shell/README.md)
+Le **funzionalità avanzate** di Meterpreter consentono movimenti laterali per **entrare** sempre più **nei sistemi**, fino ad **ottenere accesso completo alle rete** obiettivo.
 
--[Netcat or Socat?](https://github.com/emanueletroiani/Tools-e-comandi-Shell/edit/Netcat-or-Socat/README.md)
+Può essere **utilizzato anche** per **raccogliere informazioni** circa il **target**, **trasferire file** sulla macchine target, **installare backdoor** e molto altro ancora
 
--[Netcat](https://github.com/emanueletroiani/Tools-e-comandi-Shell/edit/Netcat/README.md)
+# 2 modi per ottenere una shell sul target
 
--[Socat](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Socat/README.md)
+- **bind_tcp:** in questa modalità si **inietta** un **processo** sulla **macchina obiettivo**. Questo processo si metterà in **ascolto** su una determinata **porta**, attendendo connessioni dall’esterno. Nella modalità bind_tcp il **servizio** di **shell** è **attivo** sulla **macchina attaccante** e la **connessione avviene dalla macchina dell’attaccante alla macchina target.**
+- **reverse_tcp**: in questa modalità si inietta un **processo** sulla macchina obiettivo, che questa volta **effettuerà dalla macchina target** **una connessione verso la macchina dell’attaccante** mettendo a disposizione una shell. **La differenza con il bind_tcp è che nel reverse_tcp è la macchina target che inizia la connessione verso la macchina dell’attaccante.**
 
--[Socat Encrypted Shell](https://github.com/emanueletroiani/Tools-e-comandi-Shell/edit/Socat-Encrypted-Shell/README.md)
+# Qual’è la differenza?
 
--[Stabilizzare una Shell](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Stabilizzare-una-Shell/README.md)
+Per bipassare i firewall statici si utilizza la reverse in quanto permette la fuoriuscita di dati dall’interno verso l’esterno. di conseguenza con la reverse abbiamo piu probabilità che l’attacco funzioni.
 
--[Common Shell Payloads](https://github.com/emanueletroiani/Tools-e-comandi-Shell/edit/Common-Shell-Payloads/README.md)
+# Esempio
 
--[Web Shell](https://github.com/emanueletroiani/Tools-e-comandi-Shell/edit/Web-Shell/README.md)
+- **search meterpreter** alla selezione dei **peyloads** scegliere quello specifico per la tecnologia
 
-TOOLS LINUX COMANDI
+![Untitled](https://github.com/user-attachments/assets/b3473dec-e7a4-49a3-86ba-20f36078c543)
 
--[Tools](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Tools-Linux-e-comandi/README.md)
+Dopo aver impostato il payload in base alle esigenze, **l’attacco si esegue** con il **comando** «**exploit**» visto in precedenza.
 
--[Comandi Shell Linux](https://github.com/emanueletroiani/Tools-e-comandi-Shell/tree/Comandi-Shell-Linux)
+Se l’attacco va a buon fine, si ottiene una sessione Meterpreter.
 
-METASPLOIT
+# Funzioni Meterpreter
 
-Il tool più utilizzato dagli Hacker: Metasploit
+**Information gathering**
 
-Breve guida di MSFConsole
+- **Sistema operativo** e informazioni generali sulla macchina
+- **La configurazione della rete** in uso
+- **La tabella di routing** della vittima
+- **Informazioni sull’utente** che sta eseguendo il processo exploitato
 
-Scansionare un sistema Target
+Lista comandi
 
-[Database di Metasploit](https://github.com/emanueletroiani/Tools-e-comandi-Shell/tree/Il-database-di-Metasploit)
+- **sysinfo**  info varie
 
-msfvenom
+![Untitled](https://github.com/user-attachments/assets/84096b0e-f6ba-49bd-ba10-c98b12ede37b)
 
-Attacco msfvenom, creazione di payload
+- route impostazioni di routing della macchina
 
-Meterpreter
+![Untitled](https://github.com/user-attachments/assets/8a638b91-7163-4f09-b99e-0b7cde02b8af)
+
+- upload e download ci permettono rispettivamente di caricare file dalla nostra macchina sulla macchina vittima e viceversa. La figura mostra la sintassi dei due comandi.
+
+![Untitled](https://github.com/user-attachments/assets/b220bab9-0701-4b72-a9a6-6500db113270)
+
+
+
+
+
+
+
+
+
+
