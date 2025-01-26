@@ -1,41 +1,31 @@
-# Tools-e-comandi-Shell
+Il modulo è composto da exploit e payload. **L’exploit** è come se fosse un piede di porco, ovvero un **modo per entrare**, mentre il **payload** è come se fosse il contenuto di una siringa, ci dice che **tipo** di **attacco** stiamo facendo
 
-La Shell
+1. **Avvio** del **servizio** MSFConsole: **msfconsole**
+2. **Ricerca dell’exploit**:  con il comando **search** seguito dal **nome**, **sistema operativo**, **servizio** da **attaccare** o **CVE** della vulnerabilità e poi utilizzarlo con **use, numero o path**
+3. **Controllo dei parametri necessari per lanciare l’exploit: show options,** i parametri con **YES** sono necessari per avviare il modulo
+4. **RHOST**: IP Vittima
+5. **RPORT**: porta vulnerabile
+6. **SSL/TLS:** vanno messi su yes quando l’attacco viene effettuare su HTTPS, porta 443
+7. **Ricerca e selezione del payload: show payloads** ci mostra i payload compatibili con quell’exploit, una volta trovato ciò che fa al caso nostro lo impostiamo con **set payload** seguito dal **path** del payload o dal **numero**
+8. **Controllo dei parametri necessari per utilizzare il payload: show options** 
+9. **LHOST**: inseriamo il nostro IP
+10. **Exploit Target**: alcuni payload hanno piu di un sistema target, selezionare quello che ci interessa tra windows/unix/android. di solito è automatico 
 
--[Tipi di Shell](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Tipi-di-Shell/README.md)
 
--[Netcat or Socat?](https://github.com/emanueletroiani/Tools-e-comandi-Shell/edit/Netcat-or-Socat/README.md)
+1. **Esecuzione dell’attacco: run** o **exploit**
+2. **Test:** con i comandi **ifconfig** o **whoami**
 
--[Netcat](https://github.com/emanueletroiani/Tools-e-comandi-Shell/edit/Netcat/README.md)
+# Differenza dey payload BIND e REVERSE
 
--[Socat](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Socat/README.md)
+- **bind:** in questa modalità si **inietta** un **processo** sulla **macchina obiettivo**. Questo processo si metterà in **ascolto** su una determinata **porta**, attendendo connessioni dall’esterno. Nella modalità bind_tcp il **servizio** di **shell** è **attivo** sulla **macchina attaccante** e la **connessione avviene dalla macchina dell’attaccante alla macchina target.**
+- **reverse**: in questa modalità si inietta un **processo** sulla macchina obiettivo, che questa volta **effettuerà dalla macchina target** **una connessione verso la macchina dell’attaccante** mettendo a disposizione una shell. **La differenza con il bind_tcp è che nel reverse_tcp è la macchina target che inizia la connessione verso la macchina dell’attaccante.**
 
--[Socat Encrypted Shell](https://github.com/emanueletroiani/Tools-e-comandi-Shell/edit/Socat-Encrypted-Shell/README.md)
+# Qual’è la differenza?
 
--[Stabilizzare una Shell](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Stabilizzare-una-Shell/README.md)
+Per bipassare i firewall statici si utilizza la reverse in quanto permette la fuoriuscita di dati dall’interno verso l’esterno. di conseguenza con la reverse abbiamo piu probabilità che l’attacco funzioni.
 
--[Common Shell Payloads](https://github.com/emanueletroiani/Tools-e-comandi-Shell/edit/Common-Shell-Payloads/README.md)
+# Differenza di moduli tra exploit ed auxiliary
 
--[Web Shell](https://github.com/emanueletroiani/Tools-e-comandi-Shell/edit/Web-Shell/README.md)
+**auxiliary** è un modulo che non funge da attacco ma piu da **OS fingerprintig**, in questo caso da scanner.
 
-TOOLS LINUX COMANDI
-
--[Tools](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Tools-Linux-e-comandi/README.md)
-
--[Comandi Shell Linux](https://github.com/emanueletroiani/Tools-e-comandi-Shell/tree/Comandi-Shell-Linux)
-
-METASPLOIT
-
-Il tool più utilizzato dagli Hacker: Metasploit
-
-Breve guida di MSFConsole
-
-Scansionare un sistema Target
-
-Database di Meta
-
-msfvenom
-
-Attacco msfvenom, creazione di payload
-
-Meterpreter
+Gli **auxiliary non sono composti da payload**
