@@ -1,41 +1,59 @@
-# Tools-e-comandi-Shell
+**Metasploit** ha una funzione di **database** per semplificare la gestione del progetto ed evitare possibili confusioni durante l'impostazione dei valori dei parametri quando si cerca di attaccare piu target
 
-La Shell
+Per **prima** cosa dovrai **avviare** il **database PostgreSQL**, che Metasploit utilizzerà con il seguente comando:
 
--[Tipi di Shell](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Tipi-di-Shell/README.md)
+- **`systemctl start postgresql`**
+- Sarà quindi necessario inizializzare il database Metasploit utilizzando il **`msfdb init`**comando.
 
--[Netcat or Socat?](https://github.com/emanueletroiani/Tools-e-comandi-Shell/edit/Netcat-or-Socat/README.md)
+![image](https://github.com/user-attachments/assets/0922dbf8-700e-489a-8e2c-c7dccce216d9)
 
--[Netcat](https://github.com/emanueletroiani/Tools-e-comandi-Shell/edit/Netcat/README.md)
+- Ora è possibile avviare **`msfconsole`**e controllare lo stato del database utilizzando il **`db_status`**comando.
+- La funzionalità database ti consentirà di **creare spazi** di **lavoro** per isolare progetti diversi. Al primo avvio, dovresti trovarti nello spazio di lavoro predefinito. Puoi **elencare** gli **spazi** di **lavoro** disponibili utilizzando il **`workspace`** comando.
 
--[Socat](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Socat/README.md)
+ ![image](https://github.com/user-attachments/assets/80370e40-5c47-4647-b026-77869c3c6366)
 
--[Socat Encrypted Shell](https://github.com/emanueletroiani/Tools-e-comandi-Shell/edit/Socat-Encrypted-Shell/README.md)
+ Possiamo eseguire scansioni con Nmap utilizzando il db_nmapcomando mostrato di seguito, tutti i risultati verranno salvati nel database. 
 
--[Stabilizzare una Shell](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Stabilizzare-una-Shell/README.md)
+ ![image](https://github.com/user-attachments/assets/a5150dad-6554-4b20-b199-cfbae0c5876e)
 
--[Common Shell Payloads](https://github.com/emanueletroiani/Tools-e-comandi-Shell/edit/Common-Shell-Payloads/README.md)
+ Ora è possibile accedere alle informazioni rilevanti per gli host e i servizi in esecuzione sui sistemi di destinazione rispettivamente con i comandi hostse services . 
 
--[Web Shell](https://github.com/emanueletroiani/Tools-e-comandi-Shell/edit/Web-Shell/README.md)
+ ![image](https://github.com/user-attachments/assets/c88bf571-b6bf-4dce-9bda-1cbf6505dfc6)
 
-TOOLS LINUX COMANDI
+Una volta che le informazioni sull'host sono memorizzate nel database, è possibile utilizzare il **`hosts -R`** comando per aggiungere questo valore al parametro RHOSTS
 
--[Tools](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Tools-Linux-e-comandi/README.md)
+# Esempio flusso di Lavoro
 
--[Comandi Shell Linux](https://github.com/emanueletroiani/Tools-e-comandi-Shell/tree/Comandi-Shell-Linux)
+1. Utilizzeremo il modulo di scansione delle vulnerabilità che rileva potenziali vulnerabilità MS17-010 con il **`use auxiliary/scanner/smb/smb_ms17_010`**comando.
+2. Impostiamo il valore RHOSTS utilizzando **`hosts -R` o set rhosts**
+3. Abbiamo digitato **`show optionsdb_nmap`**per verificare se tutti i valori sono stati assegnati correttamente. (In questo esempio, 10.10.138.32 è l'indirizzo IP che abbiamo scansionato in precedenza utilizzando ilcomando)
+4. Una volta impostati tutti i parametri, lanciamo l'exploit utilizzando il comando **`runexploit`**or **exploit or run**
 
-METASPLOIT
+![image](https://github.com/user-attachments/assets/5b93e404-0820-4149-a55a-11b10b464346)
 
-Il tool più utilizzato dagli Hacker: Metasploit
+Se nel database è salvato più di un host, quando **hosts -R** si utilizza il comando verranno utilizzati tutti gli indirizzi IP.
 
-Breve guida di MSFConsole
+In un tipico intervento di penetration testing, potremmo avere il seguente scenario:
 
-Scansionare un sistema Target
+- Trovare gli host disponibili utilizzando il database **`db_nmap`** 
+    
+- Scansionarli per ulteriori vulnerabilità o porte aperte (utilizzando un modulo di scansione delle porte)
 
-Database di Meta
+Il comando services utilizzato con il **`-S`**parametro consentirà di cercare servizi specifici nell'ambiente.
 
-msfvenom
+![image](https://github.com/user-attachments/assets/8acd48cd-5398-4c5c-9d79-f3abce478ce0)
 
-Attacco msfvenom, creazione di payload
+# Ecco alcune vulnerabilità che potrai trovare tri i servizi
 
-Meterpreter
+- **HTTP**: potrebbe potenzialmente ospitare un'applicazione web in cui è possibile trovare vulnerabilità come l'iniezione SQL o l'esecuzione di codice remoto (RCE).
+- **FTP**: potrebbe consentire l'accesso anonimo e fornire l'accesso a file interessanti.
+- **SMB**: potrebbe essere vulnerabile a exploit SMB come MS17-010
+- **SSH**: potrebbe avere credenziali predefinite o facili da indovinare
+- **RDP**: potrebbe essere vulnerabile a Bluekeep o consentire l'accesso al desktop se vengono utilizzate credenziali deboli.
+
+
+
+
+
+
+  
