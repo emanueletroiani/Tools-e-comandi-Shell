@@ -23,3 +23,19 @@ TOOLS LINUX COMANDI
 -[Tools](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Tools-Linux-e-comandi/README.md)
 
 -[Comandi Shell Linux](https://github.com/emanueletroiani/Tools-e-comandi-Shell/tree/Comandi-Shell-Linux)
+
+METASPLOIT
+
+Il tool più utilizzato dagli Hacker: Metasploit
+
+Breve guida di MSFConsole
+
+Scansionare un sistema Target
+
+Database di Meta
+
+msfvenom
+
+Attacco msfvenom, creazione di payload
+
+Meterpreter
