@@ -26,16 +26,16 @@ TOOLS LINUX COMANDI
 
 METASPLOIT
 
-Il tool più utilizzato dagli Hacker: Metasploit
+[Il tool più utilizzato dagli Hacker: Metasploit](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Il-tool-pi%C3%B9-utilizzato-dagli-Hacker-Metasploit/README.md)
 
-Breve guida di MSFConsole
+[Breve guida di MSFConsole](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Breve-guida-di-MSFConsole/README.md)
 
-Scansionare un sistema Target
+[Scansionare un sistema Target](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Scansionare-un-sistema-Target/README.md)
 
 [Database di Metasploit](https://github.com/emanueletroiani/Tools-e-comandi-Shell/tree/Il-database-di-Metasploit)
 
-msfvenom
+[msfvenom](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/msfvenom/README.md)
 
-Attacco msfvenom, creazione di payload
+[Attacco msfvenom, creazione di payload](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Attacco-msfvenom,-creazione-di-payload/README.md)
 
-Meterpreter
+[Meterpreter](https://github.com/emanueletroiani/Tools-e-comandi-Shell/blob/Meterpreter/README.md)
